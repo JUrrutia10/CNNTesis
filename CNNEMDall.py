@@ -75,7 +75,7 @@ class CNNWithTabular(nn.Module):
 # 3. Preprocesamiento y carga de datos
 df = pd.read_csv("data.csv")
 scaler = StandardScaler()
-features = df.drop(columns=['Imagen', 'y'])
+features = df.drop(columns=['Imagen', 'TAG'])
 df[features.columns] = scaler.fit_transform(features)
 
 train_df, val_df = train_test_split(df, test_size=0.2, random_state=42)
@@ -85,8 +85,8 @@ transform = transforms.Compose([
     transforms.ToTensor()
 ])
 
-train_dataset = TabularImageDataset(train_df, image_dir='images', transform=transform)
-val_dataset = TabularImageDataset(val_df, image_dir='images', transform=transform)
+train_dataset = TabularImageDataset(train_df, image_dir='SlowWeb', transform=transform)
+val_dataset = TabularImageDataset(val_df, image_dir='SlowWeb', transform=transform)
 
 train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
 val_loader = DataLoader(val_dataset, batch_size=32)
