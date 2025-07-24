@@ -16,14 +16,14 @@ class TabularImageDataset(Dataset):
         self.df = df
         self.image_dir = image_dir
         self.transform = transform
-        self.tabular_data = df.drop(columns=[ 'TAG']).values.astype('float32')
+        self.tabular_data = df.drop(columns=[ 'Imagen','TAG']).values.astype('float32')
         self.labels = df['TAG'].values.astype('float32')
 
     def __len__(self):
         return len(self.df)
 
     def __getitem__(self, idx):
-        img_path = os.path.join(self.image_dir, self.df.iloc[idx]['Imagen'])
+        img_path = os.path.join(self.image_dir, self.df.iloc[idx]['Imagen']+'.png')
         image = Image.open(img_path).convert('RGB')
         if self.transform:
             image = self.transform(image)
@@ -73,7 +73,7 @@ class CNNWithTabular(nn.Module):
 
 #%%
 # 3. Preprocesamiento y carga de datos
-df = pd.read_csv("data.csv")
+df = pd.read_csv("datamodelohecnps2.csv")
 scaler = StandardScaler()
 features = df.drop(columns=['Imagen', 'TAG'])
 df[features.columns] = scaler.fit_transform(features)
@@ -85,8 +85,8 @@ transform = transforms.Compose([
     transforms.ToTensor()
 ])
 
-train_dataset = TabularImageDataset(train_df, image_dir='SlowWeb', transform=transform)
-val_dataset = TabularImageDataset(val_df, image_dir='SlowWeb', transform=transform)
+train_dataset = TabularImageDataset(train_df, image_dir='SlowWeb\ ', transform=transform)
+val_dataset = TabularImageDataset(val_df, image_dir='SlowWeb\ ', transform=transform)
 
 train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
 val_loader = DataLoader(val_dataset, batch_size=32)
@@ -94,7 +94,7 @@ val_loader = DataLoader(val_dataset, batch_size=32)
 #%%
 # 4. Entrenamiento
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = CNNWithTabular(tabular_input_dim=len(y)).to(device)
+model = CNNWithTabular(tabular_input_dim=len(features.columns)).to(device)
 
 criterion = nn.BCELoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
@@ -113,3 +113,5 @@ for epoch in range(5):
         running_loss += loss.item()
 
     print(f"Epoch {epoch+1}, Loss: {running_loss/len(train_loader):.4f}")
+
+# %%

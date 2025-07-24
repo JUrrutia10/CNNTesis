@@ -1,0 +1,7 @@
+primera run 
+
+Epoch 1, Loss: 0.6916
+Epoch 2, Loss: 0.6614
+Epoch 3, Loss: 0.6433
+Epoch 4, Loss: 0.6333
+Epoch 5, Loss: 0.6290
