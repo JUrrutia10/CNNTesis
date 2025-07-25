@@ -78,7 +78,7 @@ class CNNWithTabular(nn.Module):
 
 
 # 3. Preprocesamiento y carga de datos
-df = pd.read_csv("datamodelohecnps2.csv")
+df = pd.read_csv("datamodelohecsI.csv")
 scaler = StandardScaler()
 
 # Normalización de las features
