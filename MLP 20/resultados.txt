@@ -1,0 +1,157 @@
+ALL
+Epoch 1, Loss: 0.6912, Accuracy: 52.84%
+Validation Accuracy: 56.40%
+Epoch 2, Loss: 0.6689, Accuracy: 60.48%
+Validation Accuracy: 62.92%
+Epoch 3, Loss: 0.6410, Accuracy: 63.33%
+Validation Accuracy: 66.52%
+Epoch 4, Loss: 0.6287, Accuracy: 64.33%
+Validation Accuracy: 66.07%
+Epoch 5, Loss: 0.6207, Accuracy: 65.38%
+Validation Accuracy: 65.17%
+Epoch 6, Loss: 0.6174, Accuracy: 66.23%
+Validation Accuracy: 65.84%
+Epoch 7, Loss: 0.6069, Accuracy: 66.51%
+Validation Accuracy: 65.62%
+Epoch 8, Loss: 0.6012, Accuracy: 67.46%
+Validation Accuracy: 66.74%
+Epoch 9, Loss: 0.5990, Accuracy: 67.91%
+Validation Accuracy: 65.62%
+Epoch 10, Loss: 0.5904, Accuracy: 68.28%
+Validation Accuracy: 67.19%
+Epoch 11, Loss: 0.5945, Accuracy: 68.96%
+Validation Accuracy: 69.44%
+Epoch 12, Loss: 0.5829, Accuracy: 69.11%
+Validation Accuracy: 66.97%
+Epoch 13, Loss: 0.5720, Accuracy: 69.33%
+Validation Accuracy: 68.09%
+Epoch 14, Loss: 0.5658, Accuracy: 69.88%
+Validation Accuracy: 67.64%
+Epoch 15, Loss: 0.5585, Accuracy: 70.53%
+Validation Accuracy: 69.44%
+Epoch 16, Loss: 0.5517, Accuracy: 71.63%
+Validation Accuracy: 69.21%
+Epoch 17, Loss: 0.5470, Accuracy: 71.21%
+Validation Accuracy: 68.31%
+Epoch 18, Loss: 0.5518, Accuracy: 71.53%
+Validation Accuracy: 68.31%
+Epoch 19, Loss: 0.5415, Accuracy: 71.91%
+Validation Accuracy: 68.76%
+Epoch 20, Loss: 0.5282, Accuracy: 72.73%
+Validation Accuracy: 68.76%
+Evaluating on Test Data after Training
+Classification Report:
+               precision    recall  f1-score   support
+
+         0.0       0.65      0.63      0.64       234
+         1.0       0.68      0.69      0.68       260
+
+    accuracy                           0.66       494
+   macro avg       0.66      0.66      0.66       494
+weighted avg       0.66      0.66      0.66       494
+
+NO user
+
+Epoch 1, Loss: 0.6863, Accuracy: 55.81%
+Validation Accuracy: 57.08%
+Epoch 2, Loss: 0.6780, Accuracy: 57.56%
+Validation Accuracy: 57.53%
+Epoch 3, Loss: 0.6727, Accuracy: 57.54%
+Validation Accuracy: 58.65%
+Epoch 4, Loss: 0.6712, Accuracy: 57.99%
+Validation Accuracy: 57.98%
+Epoch 5, Loss: 0.6701, Accuracy: 58.41%
+Validation Accuracy: 58.43%
+Epoch 6, Loss: 0.6665, Accuracy: 58.59%
+Validation Accuracy: 59.55%
+Epoch 7, Loss: 0.6677, Accuracy: 59.76%
+Validation Accuracy: 62.92%
+Epoch 8, Loss: 0.6674, Accuracy: 59.74%
+Validation Accuracy: 63.60%
+Epoch 9, Loss: 0.6651, Accuracy: 59.64%
+Validation Accuracy: 63.82%
+Epoch 10, Loss: 0.6647, Accuracy: 59.54%
+Validation Accuracy: 64.04%
+Epoch 11, Loss: 0.6628, Accuracy: 59.96%
+Validation Accuracy: 64.49%
+Epoch 12, Loss: 0.6624, Accuracy: 59.86%
+Validation Accuracy: 62.02%
+Epoch 13, Loss: 0.6629, Accuracy: 60.53%
+Validation Accuracy: 61.80%
+Epoch 14, Loss: 0.6653, Accuracy: 60.21%
+Validation Accuracy: 62.25%
+Epoch 15, Loss: 0.6627, Accuracy: 60.23%
+Validation Accuracy: 62.92%
+Epoch 16, Loss: 0.6599, Accuracy: 60.53%
+Validation Accuracy: 63.15%
+Epoch 17, Loss: 0.6643, Accuracy: 60.36%
+Validation Accuracy: 62.70%
+Epoch 18, Loss: 0.6628, Accuracy: 60.61%
+Validation Accuracy: 61.57%
+Epoch 19, Loss: 0.6617, Accuracy: 60.33%
+Validation Accuracy: 63.60%
+Epoch 20, Loss: 0.6604, Accuracy: 60.61%
+Validation Accuracy: 63.60%
+Evaluating on Test Data after Training
+Classification Report:
+               precision    recall  f1-score   support
+
+         0.0       0.52      0.48      0.50       234
+         1.0       0.56      0.60      0.58       260
+
+    accuracy                           0.54       494
+   macro avg       0.54      0.54      0.54       494
+weighted avg       0.54      0.54      0.54       494
+
+No peaks
+Epoch 1, Loss: 0.6959, Accuracy: 48.24%
+Validation Accuracy: 56.40%
+Epoch 2, Loss: 0.6734, Accuracy: 58.74%
+Validation Accuracy: 57.08%
+Epoch 3, Loss: 0.6623, Accuracy: 59.71%
+Validation Accuracy: 57.08%
+Epoch 4, Loss: 0.6575, Accuracy: 60.41%
+Validation Accuracy: 60.90%
+Epoch 5, Loss: 0.6480, Accuracy: 61.71%
+Validation Accuracy: 62.02%
+Epoch 6, Loss: 0.6409, Accuracy: 63.26%
+Validation Accuracy: 62.70%
+Epoch 7, Loss: 0.6338, Accuracy: 64.06%
+Validation Accuracy: 63.82%
+Epoch 8, Loss: 0.6274, Accuracy: 64.98%
+Validation Accuracy: 64.72%
+Epoch 9, Loss: 0.6203, Accuracy: 66.11%
+Validation Accuracy: 63.82%
+Epoch 10, Loss: 0.6169, Accuracy: 65.83%
+Validation Accuracy: 64.49%
+Epoch 11, Loss: 0.6094, Accuracy: 67.33%
+Validation Accuracy: 63.15%
+Epoch 12, Loss: 0.6063, Accuracy: 67.28%
+Validation Accuracy: 63.37%
+Epoch 13, Loss: 0.6033, Accuracy: 68.28%
+Validation Accuracy: 62.92%
+Epoch 14, Loss: 0.5943, Accuracy: 68.36%
+Validation Accuracy: 64.27%
+Epoch 15, Loss: 0.5859, Accuracy: 69.56%
+Validation Accuracy: 65.17%
+Epoch 16, Loss: 0.5846, Accuracy: 69.21%
+Validation Accuracy: 63.37%
+Epoch 17, Loss: 0.5797, Accuracy: 70.06%
+Validation Accuracy: 64.49%
+Epoch 18, Loss: 0.5725, Accuracy: 70.41%
+Validation Accuracy: 64.94%
+Epoch 19, Loss: 0.5659, Accuracy: 71.53%
+Validation Accuracy: 66.07%
+Epoch 20, Loss: 0.5590, Accuracy: 71.81%
+Validation Accuracy: 64.04%
+Evaluating on Test Data after Training
+Classification Report:
+               precision    recall  f1-score   support
+
+         0.0       0.60      0.58      0.59       234
+         1.0       0.63      0.65      0.64       260
+
+    accuracy                           0.62       494
+   macro avg       0.62      0.62      0.62       494
+weighted avg       0.62      0.62      0.62       494
+
