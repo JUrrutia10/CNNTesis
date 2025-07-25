@@ -5,3 +5,111 @@ Epoch 2, Loss: 0.6614
 Epoch 3, Loss: 0.6433
 Epoch 4, Loss: 0.6333
 Epoch 5, Loss: 0.6290
+
+
+CNNembedded todas 
+
+Epoch 1, Loss: 0.6955, Accuracy: 54.89%
+Epoch 2, Loss: 0.6627, Accuracy: 60.26%
+Epoch 3, Loss: 0.6488, Accuracy: 62.93%
+Epoch 4, Loss: 0.6407, Accuracy: 63.46%
+Epoch 5, Loss: 0.6317, Accuracy: 64.81%
+Epoch 6, Loss: 0.6255, Accuracy: 65.01%
+Epoch 7, Loss: 0.6233, Accuracy: 65.31%
+Epoch 8, Loss: 0.6119, Accuracy: 66.31%
+Epoch 9, Loss: 0.6124, Accuracy: 66.21%
+Epoch 10, Loss: 0.6029, Accuracy: 67.08%
+Epoch 11, Loss: 0.5950, Accuracy: 67.76%
+Epoch 12, Loss: 0.5882, Accuracy: 68.11%
+Epoch 13, Loss: 0.5815, Accuracy: 69.46%
+Epoch 14, Loss: 0.5705, Accuracy: 69.66%
+Epoch 15, Loss: 0.5625, Accuracy: 70.48%
+Epoch 16, Loss: 0.5543, Accuracy: 71.33%
+Epoch 17, Loss: 0.5494, Accuracy: 71.61%
+Epoch 18, Loss: 0.5436, Accuracy: 72.11%
+Epoch 19, Loss: 0.5356, Accuracy: 72.48%
+Epoch 20, Loss: 0.5373, Accuracy: 73.01%
+
+
+Evaluating on Test Data after Training
+Classification Report:
+               precision    recall  f1-score   support
+
+         0.0       0.68      0.68      0.68       234
+         1.0       0.71      0.72      0.72       260
+
+    accuracy                           0.70       494
+   macro avg       0.70      0.70      0.70       494
+weighted avg       0.70      0.70      0.70       494
+
+CNNembedded sin variables IMG
+
+Epoch 1, Loss: 0.6980, Accuracy: 54.34%
+Epoch 2, Loss: 0.6729, Accuracy: 58.31%
+Epoch 3, Loss: 0.6635, Accuracy: 60.06%
+Epoch 4, Loss: 0.6577, Accuracy: 61.28%
+Epoch 5, Loss: 0.6490, Accuracy: 61.28%
+Epoch 6, Loss: 0.6500, Accuracy: 61.86%
+Epoch 7, Loss: 0.6490, Accuracy: 61.91%
+Epoch 8, Loss: 0.6414, Accuracy: 62.93%
+Epoch 9, Loss: 0.6412, Accuracy: 62.73%
+Epoch 10, Loss: 0.6421, Accuracy: 63.03%
+Epoch 11, Loss: 0.6378, Accuracy: 63.83%
+Epoch 12, Loss: 0.6295, Accuracy: 64.23%
+Epoch 13, Loss: 0.6332, Accuracy: 64.58%
+Epoch 14, Loss: 0.6257, Accuracy: 65.36%
+Epoch 15, Loss: 0.6247, Accuracy: 65.18%
+Epoch 16, Loss: 0.6156, Accuracy: 66.66%
+Epoch 17, Loss: 0.6094, Accuracy: 66.88%
+Epoch 18, Loss: 0.6058, Accuracy: 66.58%
+Epoch 19, Loss: 0.6021, Accuracy: 67.31%
+Epoch 20, Loss: 0.5954, Accuracy: 67.63%
+
+Evaluating on Test Data after Training
+Classification Report:
+               precision    recall  f1-score   support
+
+         0.0       0.61      0.52      0.56       234
+         1.0       0.62      0.70      0.65       260
+
+    accuracy                           0.61       494
+   macro avg       0.61      0.61      0.61       494
+weighted avg       0.61      0.61      0.61       494
+
+
+
+
+CNNembedded no peak
+
+Epoch 1, Loss: 0.7050, Accuracy: 53.86%
+Epoch 2, Loss: 0.6724, Accuracy: 58.24%
+Epoch 3, Loss: 0.6640, Accuracy: 59.16%
+Epoch 4, Loss: 0.6580, Accuracy: 59.99%
+Epoch 5, Loss: 0.6569, Accuracy: 60.81%
+Epoch 6, Loss: 0.6538, Accuracy: 60.83%
+Epoch 7, Loss: 0.6515, Accuracy: 61.23%
+Epoch 8, Loss: 0.6474, Accuracy: 62.28%
+Epoch 9, Loss: 0.6408, Accuracy: 62.38%
+Epoch 10, Loss: 0.6415, Accuracy: 62.76%
+Epoch 11, Loss: 0.6411, Accuracy: 63.61%
+Epoch 12, Loss: 0.6341, Accuracy: 63.81%
+Epoch 13, Loss: 0.6299, Accuracy: 64.16%
+Epoch 14, Loss: 0.6274, Accuracy: 64.11%
+Epoch 15, Loss: 0.6217, Accuracy: 65.01%
+Epoch 16, Loss: 0.6212, Accuracy: 64.78%
+Epoch 17, Loss: 0.6169, Accuracy: 65.13%
+Epoch 18, Loss: 0.6129, Accuracy: 65.86%
+Epoch 19, Loss: 0.6104, Accuracy: 66.53%
+Epoch 20, Loss: 0.6074, Accuracy: 66.86%
+
+Evaluating on Test Data after Training
+Classification Report:
+               precision    recall  f1-score   support
+
+         0.0       0.57      0.59      0.58       234
+         1.0       0.62      0.60      0.61       260
+
+    accuracy                           0.60       494
+   macro avg       0.59      0.59      0.59       494
+weighted avg       0.60      0.60      0.60       494
+

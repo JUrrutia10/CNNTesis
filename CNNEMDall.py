@@ -11,9 +11,10 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import classification_report, confusion_matrix, roc_curve, auc
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy as np
 
 #%%
-# 1. Dataset personalizado
+# 1. Dataset 
 class TabularImageDataset(Dataset):
     def __init__(self, df, image_dir, transform=None):
         self.df = df
@@ -40,20 +41,20 @@ class TabularImageDataset(Dataset):
 class CNNWithTabular(nn.Module):
     def __init__(self, tabular_input_dim):
         super(CNNWithTabular, self).__init__()
-        
+
         # CNN para imagen
         self.cnn_branch = nn.Sequential(
-            nn.Conv2d(3, 16, kernel_size=3, stride=1, padding=1),  # input: 3x128x128
+            nn.Conv2d(3, 16, kernel_size=3, stride=1, padding=1),
             nn.ReLU(),
-            nn.MaxPool2d(2),  # -> 16x64x64
+            nn.MaxPool2d(2),
             nn.Conv2d(16, 32, kernel_size=3, stride=1, padding=1),
             nn.ReLU(),
-            nn.MaxPool2d(2),  # -> 32x32x32
+            nn.MaxPool2d(2),
             nn.Flatten()
         )
 
-        self._to_linear = 32 * 32 * 32  # calcular según la salida real del CNN
-        
+        self._to_linear = 32 * 32 * 32  
+
         # MLP para datos tabulares
         self.tabular_branch = nn.Sequential(
             nn.Linear(tabular_input_dim, 32),
@@ -65,18 +66,20 @@ class CNNWithTabular(nn.Module):
             nn.Linear(self._to_linear + 32, 64),
             nn.ReLU(),
             nn.Linear(64, 1),
-            nn.Sigmoid()
+            nn.Sigmoid()  # Usamos sigmoide para clasificación binaria
         )
 
     def forward(self, image, tabular):
-        x1 = self.cnn_branch(image)
-        x2 = self.tabular_branch(tabular)
+        x1 = self.cnn_branch(image) 
+        x2 = self.tabular_branch(tabular)  
+
         x = torch.cat((x1, x2), dim=1)
-        return self.combined(x).squeeze()
+        out = self.combined(x).squeeze(-1)  
+        
+        return out
+
 
 #%%
-
-
 # 3. Preprocesamiento y carga de datos
 df = pd.read_csv("datamodelohecnps2.csv")
 scaler = StandardScaler()
@@ -116,6 +119,47 @@ print(test_df['TAG'].value_counts(normalize=True))
 
 #%%
 # 4. Entrenamiento
+
+# Entrenamiento del modelo con evaluación en validación y prueba
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+model = CNNWithTabular(tabular_input_dim=len(features.columns)).to(device)
+
+criterion = nn.BCELoss()
+optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+
+# Número de épocas
+num_epochs = 20
+
+for epoch in range(num_epochs):
+    model.train()
+    running_loss = 0.0
+    correct_preds = 0
+    total_preds = 0
+
+    # Entrenamiento
+    for images, tabular, labels in train_loader:
+        images, tabular, labels = images.to(device), tabular.to(device), labels.float().to(device)
+
+        optimizer.zero_grad()
+        outputs = model(images, tabular)
+       
+        loss = criterion(outputs, labels)
+        loss.backward()
+        optimizer.step()
+
+        running_loss += loss.item()
+
+        # Calcular el accuracy
+        preds = (outputs > 0.5).float()
+        correct_preds += (preds == labels).sum().item()
+        total_preds += labels.size(0)
+
+    epoch_accuracy = 100 * correct_preds / total_preds
+    print(f"Epoch {epoch+1}, Loss: {running_loss/len(train_loader):.4f}, Accuracy: {epoch_accuracy:.2f}%")
+
+#%%
+
+
 # Función para evaluar el modelo en el conjunto de test
 def evaluate_model(model, test_loader, criterion, device):
     model.eval()  # Establecer el modelo en modo evaluación
@@ -163,44 +207,6 @@ def evaluate_model(model, test_loader, criterion, device):
     plt.title('Receiver Operating Characteristic')
     plt.legend(loc='lower right')
     plt.show()
-
-# Entrenamiento del modelo con evaluación en validación y prueba
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = CNNWithTabular(tabular_input_dim=len(features.columns)).to(device)
-
-criterion = nn.BCELoss()
-optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
-
-# Número de épocas
-num_epochs = 20
-
-for epoch in range(num_epochs):
-    model.train()
-    running_loss = 0.0
-    correct_preds = 0
-    total_preds = 0
-
-    # Entrenamiento
-    for images, tabular, labels in train_loader:
-        images, tabular, labels = images.to(device), tabular.to(device), labels.to(device)
-
-        optimizer.zero_grad()
-        outputs = model(images, tabular)
-        
-        loss = criterion(outputs, labels)
-        loss.backward()
-        optimizer.step()
-
-        running_loss += loss.item()
-
-        # Calcular el accuracy
-        preds = (outputs > 0.5).float()
-        correct_preds += (preds == labels).sum().item()
-        total_preds += labels.size(0)
-
-    epoch_accuracy = 100 * correct_preds / total_preds
-    print(f"Epoch {epoch+1}, Loss: {running_loss/len(train_loader):.4f}, Accuracy: {epoch_accuracy:.2f}%")
-
 
 # Evaluación final en el conjunto de test
 print("Evaluating on Test Data after Training")
